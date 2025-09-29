@@ -30,34 +30,32 @@ const PollingResult = ({ socket }) => {
   }, [socket]);
 
   return (
-    <div
-      className="border border-[#6edff6] bg-[#134652] mb-12"
-    >
-      <h2 className="text-center flex justify-center font-bold text-3xl items-center"
-      >
+    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+      <h2 className="text-center items-center font-bold text-xl flex justify-center mb-6">
         <img
           src={tower}
           alt=""
           width="20px"
           height="20px"
-          className="mr-5"
+          className="mr-3"
         />
         Live Results
       </h2>
-      <div
-        className="gap-y-4 gap-x-4 border-t border-[#6edff6] w-full"
-      >
+      <div className="space-y-4">
         {currentQuestion && currentQuestion.options ? (
           currentQuestion.options.map((option) => (
             <div
               key={`polling-result-${option}`}
-              className="m-4 "
+              className="space-y-2"
             >
+              <div className="flex justify-between items-center">
+                <span className="text-gray-900 font-medium">{option}</span>
+                <span className="text-gray-600 font-semibold">
+                  {parseInt(currentQuestion.results?.[option] ?? 0)}%
+                </span>
+              </div>
               <ProgressBar
                 now={parseInt(currentQuestion.results?.[option] ?? 0) ?? "0"}
-                label={<span className="text-xl text-black font-semibold">{option}              {parseInt(
-                  currentQuestion.results?.[option] ?? 0
-                )}%</span>}
                 variant={getVariant(
                   parseInt(currentQuestion.results?.[option] ?? 0)
                 )}
@@ -65,12 +63,13 @@ const PollingResult = ({ socket }) => {
                   getVariant(parseInt(currentQuestion.results?.[option] ?? 0)) !=
                   "success"
                 }
+                className="h-3"
               />
             </div>
           ))
         ) : (
-          <div className="text-center p-4">
-            <p className="text-gray-400">No results available yet</p>
+          <div className="text-center py-8">
+            <p className="text-gray-500">No results available yet</p>
           </div>
         )}
       </div>
