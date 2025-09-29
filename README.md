@@ -31,4 +31,6 @@ The Live Polling Application is a real-time interactive polling platform designe
 ## Technologies Used
 - Frontend: React (Redux optional but preferred)
 - Backend: Express.js with Socket.io for polling functionality
-an bchvgeqkdabc
+## Demo Video
+
+[![Watch the Demo Video](https://img.shields.io/badge/▶️%20Watch%20Demo-blue?style=for-the-badge)](https://www.loom.com/share/1a5f578d46f34afdb6d68525c03500f0?sid=a8023533-acc9-42e6-a9f1-dac59adc36b6)
